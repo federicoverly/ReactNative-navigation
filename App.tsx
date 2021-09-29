@@ -7,6 +7,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { StackNavitator } from './src/navigator/StackNavigator';
 import { BasicDrawer } from './src/navigator/BasicDrawer';
 import { PersonalDrawer } from './src/navigator/PersonalDrawer';
+import { Tabs } from './src/navigator/Tabs';
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
       { /* <StackNavitator /> */ } 
       { /* <BasicDrawer /> */ } 
       <PersonalDrawer />
+      { /* <Tabs />*/ } 
     </NavigationContainer>
   );
 }

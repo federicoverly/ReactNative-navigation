@@ -3,9 +3,11 @@ import { createDrawerNavigator, DrawerContentComponentProps, DrawerContentScroll
 import { StackNavitator } from './StackNavigator';
 import { SettingsScreen } from '../screens/SettingsScreen';
 import { Text, useWindowDimensions, View, Image, TouchableOpacity } from 'react-native';
-import { styles } from '../theme/appTheme'
+import { colors, styles } from '../theme/appTheme'
 import { createStackNavigator } from '@react-navigation/stack';
 import { startClock } from 'react-native-reanimated';
+import { Tabs } from './Tabs';
+import { Ionicons } from '@expo/vector-icons'
 
 const Drawer = createDrawerNavigator();
 
@@ -31,7 +33,7 @@ export const  PersonalDrawer = () => {
     }}
   drawerContent={ (props) => <DrawerContent {...props} />}
    >
-      <Drawer.Screen name="StackNavigator" component={StackNavitator} />
+      <Drawer.Screen name="Tabs" component={Tabs} />
       <Drawer.Screen name="SettingScreen" component={SettingsScreen} />
     </Drawer.Navigator>
   );
@@ -51,11 +53,13 @@ const DrawerContent = ( { navigation } : DrawerContentComponentProps) => {
     { /* Options Menu */ }
     <View style={ styles.menuContainer }>
       <TouchableOpacity style={ styles.menuButton }
-      onPress= { () => navigation.navigate('StackNavigator')}>
+      onPress= { () => navigation.navigate('Tabs')}>
+        <Ionicons name='navigate-circle-outline' size={20} color={ colors.primary }/>
         <Text style={ styles.menuContent }>Navigation</Text>
       </TouchableOpacity>
       <TouchableOpacity style={ styles.menuButton }
       onPress= { () => navigation.navigate('SettingScreen')}>
+        <Ionicons name='settings-outline' size={20} color={ colors.primary }/>
         <Text style={ styles.menuContent }>Settings</Text>
       </TouchableOpacity>
     </View>
